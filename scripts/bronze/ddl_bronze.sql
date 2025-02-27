@@ -1,3 +1,34 @@
+/*
+===============================================================================
+Stored Procedure: bronze.load_bronze - Data Ingestion Process
+===============================================================================
+Description:
+    This stored procedure handles the ETL process for loading raw data into the 
+    bronze layer of our data warehouse. It imports data from various source 
+    systems (CRM and ERP) stored as CSV files into their corresponding staging 
+    tables in the bronze schema.
+
+Process Flow:
+    1. Truncates all destination tables to ensure fresh data loads
+    2. Loads CRM system data (customer information, product details, sales data)
+    3. Loads ERP system data (customer records, location data, product categories)
+    4. Provides detailed logging of each operation with execution timing
+
+Technical Implementation:
+    - Utilizes SQL Server's BULK INSERT with TABLOCK for optimized loading
+    - Implements comprehensive error handling with detailed error reporting
+    - Records performance metrics for each table load operation
+
+Dependencies:
+    - Requires the bronze schema and associated tables to be pre-created
+    - Source CSV files must be accessible at the specified file paths
+    - File format expects comma-delimited values with headers in the first row
+
+Usage:
+    EXEC bronze.load_bronze;
+
+===============================================================================
+*/
 exec bronze.load_bronze
 
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
