@@ -21,8 +21,6 @@ Usage:
 ===============================================================================
 */
 
-EXEC silver.load_silver;
-
 CREATE OR ALTER PROCEDURE silver.load_silver AS
 BEGIN
     DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME; 
