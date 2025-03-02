@@ -1,3 +1,26 @@
+/*
+===============================================================================
+Stored Procedure: Load Silver Layer (Bronze → Silver)
+===============================================================================
+Overview:
+    This stored procedure executes the ETL (Extract, Transform, Load) process 
+    to migrate and refine data from the 'bronze' schema into the 'silver' schema.
+    
+Operations Performed:
+    - Clears existing data in the Silver tables to ensure a fresh load.
+    - Extracts raw data from the Bronze layer.
+    - Applies necessary transformations and cleansing procedures.
+    - Loads the refined data into the corresponding Silver tables.
+
+Parameters:
+    None. 
+    This procedure operates without input parameters and does not return values.
+
+Usage:
+    EXEC silver.load_silver;
+===============================================================================
+*/
+
 EXEC silver.load_silver;
 
 CREATE OR ALTER PROCEDURE silver.load_silver AS
